@@ -1,4 +1,5 @@
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
+import { Button, Form } from "react-bootstrap";
 
 interface AddTodoFormProps {
   addTodo: AddTodo;
@@ -13,18 +14,27 @@ export const AddToDoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
   };
 
   // add todo note when submitting
-  const handleSubmit = (event: FormEvent<HTMLButtonElement>) => {
+  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     addTodo(newTodo);
     setNewTodo("");
   };
 
   return (
-    <form>
-      <input type="text" value={newTodo} onChange={handleChange} />
-      <button type="submit" onClick={handleSubmit}>
-        Add todo
-      </button>
-    </form>
+    <Form onSubmit={handleSubmit} style={{ color: "floralwhite" }}>
+      <Form.Group>
+        <Form.Label>Add Todo</Form.Label>
+        <Form.Control
+          type="text"
+          className="input"
+          value={newTodo}
+          onChange={handleChange}
+          placeholder="Add new todo"
+        />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
   );
 };

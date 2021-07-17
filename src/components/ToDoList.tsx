@@ -1,4 +1,5 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 import ToDoListItem from "./ToDoListItem";
 
 interface ToDoListProps {
@@ -9,11 +10,15 @@ interface ToDoListProps {
 const ToDoList: React.FC<ToDoListProps> = ({ todos, toggleTodo }) => {
   // map each todo item in the ToDoList
   return (
-    <ul>
-      {todos.map((todo) => {
-        return <ToDoListItem todo={todo} toggleTodo={toggleTodo} />;
-      })}
-    </ul>
+    <div>
+      {todos.map((todo, index) => (
+        <Card key={index}>
+          <Card.Body>
+            <ToDoListItem todo={todo} toggleTodo={toggleTodo} />
+          </Card.Body>
+        </Card>
+      ))}
+    </div>
   );
 };
 

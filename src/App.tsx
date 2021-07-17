@@ -1,9 +1,8 @@
-// import "./App.css";
+import "./styles/App.css";
 import React, { useState } from "react";
 import { AddToDoForm } from "./components/AddToDoForm";
 import ToDoList from "./components/ToDoList";
-
-const initTodos: Array<Todo> = [];
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Array<Todo>>([]);
@@ -29,10 +28,17 @@ const App: React.FC = () => {
   };
 
   return (
-    <React.Fragment>
-      <ToDoList todos={todos} toggleTodo={toggleTodo} />
-      <AddToDoForm addTodo={addTodo} />
-    </React.Fragment>
+    <div className="app">
+      <div className="container">
+        <h1 className="text-center mb-4" style={{ color: "floralwhite" }}>
+          Todo List
+        </h1>
+        <React.Fragment>
+          <ToDoList todos={todos} toggleTodo={toggleTodo} />
+          <AddToDoForm addTodo={addTodo} />
+        </React.Fragment>
+      </div>
+    </div>
   );
 };
 
