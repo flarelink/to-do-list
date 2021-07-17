@@ -27,6 +27,14 @@ const App: React.FC = () => {
       setTodos([...todos, { note: newTodo, complete: false }]);
   };
 
+  // remove a todo if button is clicked
+  const removeTodo: RemoveTodo = (todo) => {
+    const tempTodos = [...todos];
+    const index = tempTodos.indexOf(todo);
+    tempTodos.splice(index, 1);
+    setTodos(tempTodos);
+  };
+
   return (
     <div className="app">
       <div className="container">
@@ -34,7 +42,11 @@ const App: React.FC = () => {
           Todo List
         </h1>
         <React.Fragment>
-          <ToDoList todos={todos} toggleTodo={toggleTodo} />
+          <ToDoList
+            todos={todos}
+            toggleTodo={toggleTodo}
+            removeTodo={removeTodo}
+          />
           <AddToDoForm addTodo={addTodo} />
         </React.Fragment>
       </div>

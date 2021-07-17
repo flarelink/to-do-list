@@ -8,3 +8,4 @@ interface Todo {
 
 type ToggleTodo = (selectedTodo: Todo) => void;
 type AddTodo = (newTodo: string) => void;
+type RemoveTodo = (index: Todo) => void;
