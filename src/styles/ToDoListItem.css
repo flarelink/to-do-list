@@ -4,7 +4,7 @@
 
 .todo {
   align-items: center;
-  display: flex;
+  display: flexbox;
   font-size: 18px;
   justify-content: space-between;
 }
