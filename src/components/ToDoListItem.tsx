@@ -15,9 +15,9 @@ const ToDoListItem: React.FC<TodoListItemProps> = ({
 }) => {
   return (
     <div className="todo">
-      <label className={todo.complete ? "complete" : undefined}>
+      <span className={todo.complete ? "complete" : undefined}>
         {todo.note}
-      </label>
+      </span>
 
       <div>
         {/* // button to toggle strike through of todo's note */}
